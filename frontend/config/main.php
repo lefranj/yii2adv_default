@@ -8,8 +8,14 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
+    'name' => 'Collection',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'modules' => [
+        'gii' => [
+            'class' => 'yii\gii\Module'
+        ],
+    ],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
@@ -40,10 +46,10 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                '' => 'site/index',
+                '' => 'article/index',
                 '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
-                'articles' => 'article/index',
-                'article/<id:\d+>' => 'article/view',
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
+                '<controller:\w+>s' => '<controller>/index',
             ],
         ],
     ],
