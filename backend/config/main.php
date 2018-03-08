@@ -8,10 +8,15 @@ $params = array_merge(
 
 return [
     'id' => 'app-backend',
+    'name' => 'Yii 2.0 Admin',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
-    'bootstrap' => ['log'],
-    'modules' => [],
+    'bootstrap' => ['log', 'gii'],
+    'modules' => [
+        'gii' => [
+            'class' => 'yii\gii\Module'
+        ],
+    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
@@ -37,14 +42,18 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        /*
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '' => 'site/index',
+                '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
+                'articles' => 'article/index',
+//                'article/<id:\d+>' => 'article/view',
             ],
         ],
-        */
+
     ],
     'params' => $params,
 ];
