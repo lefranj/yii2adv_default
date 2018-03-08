@@ -50,7 +50,7 @@ return [
                 '' => 'site/index',
                 '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
                 'articles' => 'article/index',
-//                'article/<id:\d+>' => 'article/view',
+                'article/<id:\d+>' => 'article/view',
             ],
         ],
 
